@@ -1,0 +1,8 @@
+:root{--paper:#F6F1E6;--ink:#2A2622;--soft:#5A524A;--red:#C23B2E;--green:#2E6A4C}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 "Be Vietnam Pro",system-ui,sans-serif}
+main{max-width:640px;margin:0 auto;padding:40px 16px 64px}
+h1{font-family:"EB Garamond",Georgia,serif;color:var(--red);font-size:40px;line-height:1.1;margin:0 0 4px}
+h2{font-family:"EB Garamond",Georgia,serif;font-size:24px;margin:28px 0 6px}
+.sub{color:var(--soft);margin:0 0 20px;border-bottom:2px solid var(--red);padding-bottom:12px}
+a{color:var(--red)}
+small{color:var(--soft)}
