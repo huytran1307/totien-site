@@ -1,14 +1,154 @@
-<!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Tổ Tiên · Hỗ trợ</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@800&family=Be+Vietnam+Pro:wght@400;700&display=swap">
-<link rel="stylesheet" href="style.css"></head><body><main>
-<h1>Tổ Tiên</h1>
-<p class="sub">Lịch âm Việt &amp; sổ ngày giỗ gia đình · Hỗ trợ</p>
-<h2>Liên hệ</h2>
-<p>Góp ý, báo lỗi hay đề xuất ngày lễ: <a href="mailto:huytranfilms@gmail.com">huytranfilms@gmail.com</a></p>
-<h2>Câu hỏi thường gặp</h2>
-<p><strong>Lịch âm tính theo đâu?</strong><br>Theo thuật toán thiên văn của Hồ Ngọc Đức, múi giờ Việt Nam (UTC+7). Có năm lịch Trung Quốc lệch một ngày so với lịch Việt (vd. Tết 1985, 2007, 2030).</p>
-<p><strong>Người mất trong tháng nhuận thì giỗ ngày nào?</strong><br>Giỗ theo tháng thường cùng số. Ngày 30 mà năm đó tháng chỉ có 29 ngày thì giỗ ngày 29.</p>
-<p><strong>Ngày lễ người Hoa, miền Tây, ngày vía có chính xác không?</strong><br>Ngày có nguồn rõ mới hiện trên lịch; ngày chưa kiểm chứng nằm trong mục gợi ý để bạn tự chọn. Phong tục mỗi nơi có khác, bạn sửa theo lệ nhà mình. Thấy sai, nhờ báo qua email ở trên.</p>
-<p><strong>Dữ liệu của tôi có được gửi đi đâu không?</strong><br>Không. Xem <a href="privacy.html">Quyền riêng tư</a>.</p>
-</main></body></html>
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tổ Tiên · Lịch âm Việt</title>
+<meta name="description" content="Lịch âm Việt chuẩn giờ Việt Nam và sổ ngày giỗ gia đình. Nhập ngày giỗ một lần theo âm lịch, Tổ Tiên tự tính ngày dương mỗi năm và nhắc bạn chuẩn bị trước.">
+<meta name="apple-itunes-app" content="app-id=6827442692">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Tổ Tiên">
+<meta property="og:title" content="Tổ Tiên · Lịch âm Việt & sổ ngày giỗ">
+<meta property="og:description" content="Ngày âm chuẩn giờ Việt Nam. Nhớ ngày giỗ ông bà, nhắc trước để chuẩn bị. Miễn phí trên App Store.">
+<meta property="og:image" content="https://huytran1307.github.io/totien-site/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://huytran1307.github.io/totien-site/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@700;800&family=Be+Vietnam+Pro:wght@400;700;900&display=swap">
+<style>
+/* Trang giới thiệu một cột: giấy kẻ ô, viền đôi son, son cho tiêu đề, lục cho điểm nhấn — đúng bộ nhận diện của app. Một giao diện sáng như app. */
+:root {
+  --paper: #F6F1E6; --ivory: #FFFCF5; --ink: #2A2622; --soft: #5A524A;
+  --red: #C23B2E; --green: #2E6A4C; --rule: #E6CFC6; --grid: #ECE6D9;
+  --serif: "EB Garamond", Georgia, serif; --sans: "Be Vietnam Pro", system-ui, sans-serif;
+  color-scheme: light;
+}
+body { margin: 0; color: var(--ink); font: 17px/1.65 var(--sans);
+  background: var(--paper);
+  background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 40px 40px; }
+main { max-width: 760px; margin: 0 auto; padding-block: 28px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: var(--red); }
+.hero { position: relative; overflow: hidden; border-radius: 28px; min-height: 420px; color: #FFFCF5;
+  background: radial-gradient(120% 140% at 10% 110%, #8E271D 0%, #B2352A 45%, #C8473A 100%); }
+.hero::before { content: ""; position: absolute; inset: 0; opacity: .07;
+  background-image: radial-gradient(circle at 50% 50%, transparent 38%, #fff 39%, #fff 41%, transparent 42%); background-size: 44px 44px; }
+.hero .copy { position: relative; margin-left: auto; width: 54%; min-height: 420px; box-sizing: border-box; padding: 44px 44px 40px 0;
+  display: flex; flex-direction: column; justify-content: space-between; align-items: flex-end; text-align: right; gap: 28px; }
+.hero h1 { font-family: var(--serif); font-weight: 700; font-size: clamp(56px, 9vw, 92px); line-height: .95; margin: 0; letter-spacing: -1px; }
+.hero .lead { font-weight: 700; font-size: clamp(22px, 3.2vw, 30px); line-height: 1.25; margin: 14px 0 0; }
+.hero .more { font-size: 16px; opacity: .9; margin: 12px 0 0; max-width: 30ch; margin-left: auto; }
+.cta { display: inline-flex; align-items: center; gap: 16px; color: #FFFCF5; text-decoration: none; font-size: clamp(20px, 2.6vw, 26px); }
+.cta .btn { width: 60px; height: 60px; border-radius: 50%; background: #FFFCF5; display: grid; place-items: center; flex: none; }
+.cta:hover .btn { transform: rotate(8deg); }
+.cta .btn { transition: transform .2s ease; }
+.stack { position: absolute; left: -36px; top: 120px; transform: rotate(-16deg); transform-origin: left top; }
+.sheet { position: absolute; width: 330px; height: 400px; background: #FFFCF5; border-radius: 6px; }
+.s5 { left: 28px; top: 24px; background: #E9E1D0; } .s4 { left: 21px; top: 18px; background: #EFE8D9; }
+.s3 { left: 14px; top: 12px; background: #F3EDE1; } .s2 { left: 7px; top: 6px; background: #F8F3EA; }
+.s1 { left: 0; top: 0; box-shadow: 0 20px 44px rgba(40,10,5,.45); padding: 26px 28px; box-sizing: border-box; color: #C23B2E; }
+.s1 .top { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #C23B2E; padding-bottom: 10px; }
+.s1 .m { font-family: var(--serif); font-size: 30px; line-height: 1.05; font-weight: 700; white-space: nowrap; }
+.s1 .cap { font-weight: 700; font-size: 10px; letter-spacing: .18em; }
+.s1 .dl { text-align: right; color: #2E6A4C; font-weight: 900; font-size: 26px; line-height: 1; }
+.s1 .dl small { display: block; font-size: 9px; letter-spacing: .2em; font-weight: 700; margin-bottom: 4px; white-space: nowrap; }
+.s1 .num { font-weight: 900; font-size: 176px; letter-spacing: -9px; line-height: 1; margin-top: 8px; text-align: center;
+  background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%3E%3Crect%20width%3D%22100%22%20height%3D%22100%22%20fill%3D%22%232E6A4C%22/%3E%3Cg%20fill%3D%22%2346856A%22%3E%3Ccircle%20cx%3D%220%22%20cy%3D%220%22%20r%3D%2212%22/%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%220%22%20r%3D%2212%22/%3E%3Ccircle%20cx%3D%220%22%20cy%3D%22100%22%20r%3D%2212%22/%3E%3Ccircle%20cx%3D%22100%22%20cy%3D%22100%22%20r%3D%2212%22/%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2232%22%20r%3D%2218%22/%3E%3Ccircle%20cx%3D%2268%22%20cy%3D%2250%22%20r%3D%2218%22/%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2268%22%20r%3D%2218%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2250%22%20r%3D%2218%22/%3E%3C/g%3E%3Cg%20fill%3D%22%232E6A4C%22%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2235%22%20r%3D%2210%22/%3E%3Ccircle%20cx%3D%2265%22%20cy%3D%2250%22%20r%3D%2210%22/%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2265%22%20r%3D%2210%22/%3E%3Ccircle%20cx%3D%2235%22%20cy%3D%2250%22%20r%3D%2210%22/%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%2212%22/%3E%3C/g%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2250%22%20r%3D%226%22%20fill%3D%22%2346856A%22/%3E%3C/svg%3E") 0 0/38px 38px, #2E6A4C; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: #2E6A4C; }
+.s1 .dow { font-family: var(--serif); font-weight: 800; font-size: 30px; letter-spacing: .14em; text-align: center; border-top: 2px solid #C23B2E; padding-top: 6px; }
+.curl { position: absolute; right: -1px; bottom: -1px; width: 60px; height: 60px; border-radius: 0 0 6px 0;
+  background: linear-gradient(135deg, transparent 50%, #E3D9C6 50%, #FFFCF5 72%, #D9CDB6 100%); box-shadow: -5px -5px 12px rgba(0,0,0,.12); }
+.note { font-size: 14px; color: var(--soft); margin: 12px 4px 0; }
+h2 { font-family: var(--serif); font-weight: 800; color: var(--red); font-size: clamp(32px, 5vw, 40px); margin: 56px 0 16px;
+  padding-bottom: 8px; border-bottom: 2px solid var(--red); text-wrap: balance; }
+.features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.feature { background: var(--ivory); border: 1px solid var(--rule); border-radius: 18px; padding: 22px; min-width: 0; }
+.feature h3 { font-family: var(--serif); font-size: 26px; line-height: 1.15; margin: 0 0 4px; color: var(--ink); }
+.feature p { margin: 0; color: var(--soft); font-size: 16px; }
+.tag { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .12em; color: var(--green); text-transform: uppercase; margin-bottom: 6px; }
+.shots { display: flex; gap: 12px; overflow-x: auto; padding: 4px 2px 12px; scroll-snap-type: x mandatory; }
+.shots figure { margin: 0; flex: 0 0 min(200px, 46%); scroll-snap-align: start; }
+.shots img { width: 100%; height: auto; display: block; border-radius: 22px; border: 1px solid var(--rule); box-shadow: 0 8px 20px rgba(42,38,34,.12); }
+.shots figcaption { font-size: 13px; color: var(--soft); text-align: center; margin-top: 6px; }
+.plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.plan { border: 1px solid var(--rule); border-radius: 18px; padding: 22px; background: var(--ivory); min-width: 0; }
+.plan.plus { border: 2px solid var(--green); }
+.plan h3 { font-family: var(--serif); font-size: 30px; margin: 0; }
+.price { font-weight: 900; font-size: 20px; color: var(--green); margin: 2px 0 10px; }
+.plan ul { margin: 0; padding-left: 18px; color: var(--ink); font-size: 16px; }
+.plan li { margin: 4px 0; }
+details { background: var(--ivory); border: 1px solid var(--rule); border-radius: 12px; padding: 12px 16px; margin: 8px 0; }
+summary { font-weight: 700; cursor: pointer; min-height: 28px; }
+details p { margin: 8px 0 0; color: var(--soft); }
+footer { margin-top: 44px; padding-top: 16px; border-top: 2px solid var(--red); font-size: 14px; color: var(--soft);
+  display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between; }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+@media (max-width: 620px) {
+  .hero { min-height: 740px; }
+  .hero .copy { width: 100%; min-height: 0; padding: 32px 28px 28px; align-items: flex-start; text-align: left; position: absolute; bottom: 0; justify-content: flex-end;
+    background: linear-gradient(to top, #8E271D 55%, rgba(142,39,29,0)); padding-top: 60px; }
+  .hero .more { margin-left: 0; }
+  .stack { left: 28px; top: 56px; transform: rotate(-10deg) scale(.72); }
+  .features, .plans { grid-template-columns: 1fr; }
+}
+</style>
+<link rel="icon" href="img/icon.png">
+</head><body>
+<main>
+  <section class="hero" aria-label="Tổ Tiên">
+    <div class="stack" aria-hidden="true">
+      <div class="sheet s5"></div><div class="sheet s4"></div><div class="sheet s3"></div><div class="sheet s2"></div>
+      <div class="sheet s1">
+        <div class="top"><div><div class="cap">THÁNG CHÍN ĐỦ</div><div class="m">Hai mươi chín<br>tháng Chín</div></div><div class="dl"><small>DƯƠNG LỊCH</small>07.11</div></div>
+        <div class="num">29</div><div class="dow">THỨ BẢY</div><div class="curl"></div>
+      </div>
+    </div>
+    <div class="copy">
+      <div>
+        <h1>Tổ Tiên</h1>
+        <p class="lead">Lịch âm Việt<br>&amp; sổ ngày giỗ</p>
+        <p class="more">Nhập ngày giỗ ông bà một lần theo âm lịch. Tổ Tiên tự tính ngày dương mỗi năm và nhắc cả nhà chuẩn bị trước.</p>
+      </div>
+      <a class="cta" href="https://apps.apple.com/vn/app/id6827442692">Tải trên App Store
+        <span class="btn"><svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" fill="none" stroke="#2A2622" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+    </div>
+  </section>
+  <p class="note">Miễn phí · iPhone, iOS 18 trở lên · Tiếng Việt</p>
+
+  <h2>Tổ Tiên làm được gì</h2>
+  <div class="features">
+    <div class="feature"><span class="tag">Lịch âm</span><h3>Chuẩn giờ Việt Nam</h3><p>Thuật toán thiên văn của Hồ Ngọc Đức, múi giờ UTC+7. Can chi, tiết khí, giờ hoàng đạo. Mỗi ngày một viên gạch bông theo ngũ hành.</p></div>
+    <div class="feature"><span class="tag">Ngày giỗ</span><h3>Nhớ thay cả nhà</h3><p>Giỗ, sinh nhật, kỷ niệm theo âm hoặc dương. Nhắc trước 1 ngày, 1 tuần, 1 tháng. Ghi "giỗ lần thứ mấy", việc cần chuẩn bị.</p></div>
+    <div class="feature"><span class="tag">Bộ lịch</span><h3>Theo phong tục nhà bạn</h3><p>Lễ truyền thống Việt, ngày lễ chính thức, lễ người Hoa, lễ miền Tây, lịch phụng vụ Công giáo.</p></div>
+    <div class="feature"><span class="tag">Widget</span><h3>Xem ngay ngoài màn hình</h3><p>Widget màn hình chính và màn hình khoá: ngày âm, ngày giỗ sắp tới, đếm ngược, lật xem sự kiện.</p></div>
+    <div class="feature"><span class="tag">Sao lưu</span><h3>iCloud riêng của bạn</h3><p>Đổi máy hay lỡ xoá app, dữ liệu tự về. Tổ Tiên không có máy chủ, không xem được dữ liệu của bạn.</p></div>
+    <div class="feature"><span class="tag">Chia sẻ</span><h3>Báo cả nhà một chạm</h3><p>Gửi thiệp ngày giỗ qua Zalo, Tin nhắn kèm tệp lịch 10 năm. Người nhận không cần cài app vẫn được nhắc.</p></div>
+  </div>
+
+  <h2>Xem trong app</h2>
+  <div class="shots">
+    <figure><img src="img/today.png" alt="Màn Hôm nay, tờ lịch âm"><figcaption>Tờ lịch âm mỗi ngày</figcaption></figure>
+    <figure><img src="img/me.png" alt="Tab Tôi với sổ Gia đình"><figcaption>Sổ ngày giỗ gia đình</figcaption></figure>
+    <figure><img src="img/lit.png" alt="Tờ lịch phụng vụ Công giáo"><figcaption>Lịch phụng vụ Công giáo</figcaption></figure>
+    <figure><img src="img/widget.png" alt="Trang hướng dẫn widget"><figcaption>Widget và hướng dẫn</figcaption></figure>
+  </div>
+
+  <h2>Miễn phí và Tổ Tiên Plus</h2>
+  <div class="plans">
+    <div class="plan"><h3>Miễn phí</h3><p class="price">0đ, mãi mãi</p>
+      <ul><li>Lịch âm, mọi bộ lịch</li><li>Lưu và nhắc ngày giỗ không giới hạn</li><li>Widget kiểu Giấy</li><li>Sao lưu iCloud</li><li>Chia sẻ từng ngày giỗ</li></ul></div>
+    <div class="plan plus"><h3>Tổ Tiên Plus</h3><p class="price">49.000đ · mua một lần</p>
+      <ul><li>Widget màu Son, Lục, Tím</li><li>Widget đếm ngược một ngày giỗ</li><li>Ảnh kỷ niệm trong từng ngày nhớ</li><li>Gửi cả sổ cho người nhà</li><li>Dùng chung qua Chia sẻ trong gia đình của Apple</li></ul></div>
+  </div>
+
+  <h2>Câu hỏi thường gặp</h2>
+  <details><summary>Lịch âm tính theo đâu?</summary><p>Theo thuật toán thiên văn của Hồ Ngọc Đức, múi giờ Việt Nam (UTC+7). Có năm lịch Trung Quốc lệch một ngày so với lịch Việt (vd. Tết 1985, 2007, 2030).</p></details>
+  <details><summary>Người mất trong tháng nhuận thì giỗ ngày nào?</summary><p>Giỗ theo tháng thường cùng số. Ngày 30 mà năm đó tháng chỉ có 29 ngày thì giỗ ngày 29.</p></details>
+  <details><summary>Đổi điện thoại có mất sổ ngày giỗ không?</summary><p>Không, nếu iPhone bật iCloud. Đăng nhập cùng tài khoản Apple trên máy mới, cài Tổ Tiên là dữ liệu tự về. Lỡ xoá một ngày thì vào Đã xoá gần đây để khôi phục trong 30 ngày.</p></details>
+  <details><summary>Ngày lễ người Hoa, miền Tây, ngày vía có chính xác không?</summary><p>Ngày có nguồn rõ mới hiện trên lịch; ngày chưa kiểm chứng nằm trong mục gợi ý để bạn tự chọn. Phong tục mỗi nơi có khác, bạn sửa theo lệ nhà mình. Thấy sai, nhờ báo qua email bên dưới.</p></details>
+
+  <footer>
+    <span>Góp ý, báo lỗi: <a href="mailto:huytranfilms@gmail.com">huytranfilms@gmail.com</a></span>
+    <span><a href="privacy.html">Quyền riêng tư</a> · © 2026 Huy Tran</span>
+  </footer>
+</main>
+
+</body></html>
